@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Лабораторна робота № 6</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="page-header">
+    <h1>Лабораторна робота № 6</h1>
+  </header>
+
+  <main>
+    <section aria-labelledby="float-title">
+      <h2 id="float-title">Секція 1. Обтікання тексту</h2>
+      <div class="float-example">
+        <img class="float-image" src="img/image.svg" width="200" height="200" alt="Зелений квадрат із написом SVG Image">
+        <p>Під час розробки вебсторінки важливо враховувати, як текст взаємодіє із зображеннями. Якщо зображення вирівняти ліворуч за допомогою властивості float, рядки тексту займатимуть вільний простір праворуч. Нижче від зображення текст знову заповнюватиме всю ширину контейнера.</p>
+        <p>Внутрішні та зовнішні відступи допомагають відокремити ілюстрацію від тексту. Зовнішній відступ праворуч залишає проміжок між плаваючим зображенням і рядками. Властивість clear дає змогу почати наступний блок нижче від зображення, навіть якщо текст поруч із ним короткий.</p>
+        <p class="after-float">Порядок блоків у HTML впливає на обтікання. Зображення розміщують перед абзацами, які мають його обтікати. Щоб перевірити результат, можна відкрити панель Elements у Chrome, вибрати зображення й тимчасово вимкнути правило float.</p>
+      </div>
+      <div class="float-example">
+        <img class="float-image" src="img/image.svg" width="200" height="200" alt="Зелений квадрат із написом SVG Image">
+        <p>Внутрішні та зовнішні відступи допомагають відокремити ілюстрацію від тексту. Зовнішній відступ праворуч залишає проміжок між плаваючим зображенням і рядками. Властивість clear дає змогу почати наступний блок нижче від зображення, навіть якщо текст поруч із ним короткий.</p>
+        <p>Порядок блоків у HTML впливає на обтікання. Зображення розміщують перед абзацами, які мають його обтікати. Щоб перевірити результат, можна відкрити панель Elements у Chrome, вибрати зображення й тимчасово вимкнути правило float.</p>
+        <p class="after-float">Під час розробки вебсторінки важливо враховувати, як текст взаємодіє із зображеннями. Якщо зображення вирівняти ліворуч за допомогою властивості float, рядки тексту займатимуть вільний простір праворуч. Нижче від зображення текст знову заповнюватиме всю ширину контейнера.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="columns-title">
+      <h2 id="columns-title">Секція 2. Багатоколонковий макет</h2>
+      <div class="columns">
+        <p>Багатоколонковий макет ділить довгий текст на вузькі смуги. Браузер розподіляє вміст по колонках і намагається зрівняти їхню висоту. Щоб продовжити читати текст, після нижнього рядка колонки треба перейти до верхнього рядка наступної.</p>
+        <p>Відстань між колонками задає властивість column-gap. Тонка вертикальна лінія, створена за допомогою column-rule, позначає межу між сусідніми колонками. Вона розташовується всередині проміжку й не змінює ширини тексту.</p>
+        <p>На великому екрані зручно показувати п’ять колонок. На планшеті їх можна скоротити до трьох, а на телефоні залишити одну. Медіазапити змінюють кількість колонок залежно від ширини вікна браузера.</p>
+        <p>Під час розробки вебсторінки важливо враховувати, як текст взаємодіє із зображеннями. Якщо зображення вирівняти ліворуч за допомогою властивості float, рядки тексту займатимуть вільний простір праворуч. Нижче від зображення текст знову заповнюватиме всю ширину контейнера.</p>
+        <p>Внутрішні та зовнішні відступи допомагають відокремити ілюстрацію від тексту. Зовнішній відступ праворуч залишає проміжок між плаваючим зображенням і рядками. Властивість clear дає змогу почати наступний блок нижче від зображення, навіть якщо текст поруч із ним короткий.</p>
+        <p>Порядок блоків у HTML впливає на обтікання. Зображення розміщують перед абзацами, які мають його обтікати. Щоб перевірити результат, можна відкрити панель Elements у Chrome, вибрати зображення й тимчасово вимкнути правило float.</p>
+        <p>Модальне вікно відкривається поверх сторінки. Напівпрозорий фон затемнює інший вміст, а фокус переходить у поле введення. Після закриття користувач повертається до кнопки, з якої відкрив форму.</p>
+        <p>Позиціоновані елементи можна розташовувати шарами. Властивість z-index визначає порядок накладання в межах одного контексту. Нативне діалогове вікно, відкрите методом showModal, браузер додатково переносить у верхній шар.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="modal-title">
+      <h2 id="modal-title">Секція 3. Модальне вікно для email</h2>
+      <button type="button" id="subscribe">Підписатися</button>
+      <p id="subscription-status" role="status"></p>
+      <p>Натисни «Підписатися», щоб відкрити форму. Поле обов’язкове, а формат адреси перевіряє браузер.</p>
+      <p>Форма зберігає адресу лише в цьому браузері. Для виходу без збереження натисни Esc або кнопку закриття.</p>
+    </section>
+  </main>
+
+  <dialog id="email-dialog" aria-labelledby="email-label">
+    <form id="email-form">
+      <button class="close-dialog" type="button" aria-label="Закрити">×</button>
+      <label id="email-label" for="email">Введіть вашу електронну пошту</label>
+      <div class="form-row">
+        <input type="email" id="email" name="email" autocomplete="email" required autofocus>
+        <button type="submit">Зберегти</button>
+      </div>
+      <p id="form-error" role="alert"></p>
+    </form>
+  </dialog>
+
+  <script>
+    const dialog = document.querySelector('#email-dialog');
+    const form = document.querySelector('#email-form');
+    const email = document.querySelector('#email');
+    const formError = document.querySelector('#form-error');
+    const status = document.querySelector('#subscription-status');
+    const storageKey = 'lab6.subscriptionEmail';
+
+    document.querySelector('#subscribe').addEventListener('click', () => {
+      formError.textContent = '';
+      try {
+        email.value = localStorage.getItem(storageKey) || email.value;
+      } catch {
+        // The form can still open if the browser blocks local storage.
+      }
+      dialog.showModal();
+    });
+
+    document.querySelector('.close-dialog').addEventListener('click', () => {
+      dialog.close();
+    });
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      try {
+        localStorage.setItem(storageKey, email.value);
+      } catch {
+        formError.textContent = 'Браузер не дозволив зберегти адресу.';
+        return;
+      }
+
+      status.textContent = 'Адресу збережено в цьому браузері.';
+      dialog.close();
+    });
+  </script>
+</body>
+</html>

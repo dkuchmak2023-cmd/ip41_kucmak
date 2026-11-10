@@ -1,0 +1,156 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: #222;
+  background-color: #f5f5f5;
+  font: 16px/1.4 Arial, sans-serif;
+}
+
+/* Липка шапка залишається над текстом під час прокручування. */
+.page-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 18px 10px;
+  background-color: #2e7d32;
+  color: #fff;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+  font-size: 26px;
+}
+
+main {
+  padding: 10px;
+}
+
+section {
+  margin-bottom: 36px;
+}
+
+h2 {
+  margin: 10px 0;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #ccc;
+  font-size: 20px;
+}
+
+p {
+  margin: 0 0 12px;
+}
+
+/* Текст обтікає зображення. Абзац із clear починається під ним. */
+.float-example {
+  display: flow-root;
+  margin-bottom: 14px;
+}
+
+.float-image {
+  float: left;
+  width: min(200px, 42%);
+  height: auto;
+  margin: 0 15px 8px 0;
+}
+
+.after-float {
+  clear: both;
+}
+
+/* На вузьких екранах зменшуємо кількість колонок. */
+.columns {
+  column-count: 5;
+  column-gap: 24px;
+  column-rule: 1px solid #ccc;
+}
+
+button {
+  padding: 8px 14px;
+  border: 0;
+  background-color: #2e7d32;
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+
+#subscription-status:not(:empty) {
+  margin: 10px 0;
+  color: #246228;
+}
+
+#subscription-status:empty,
+#form-error:empty {
+  display: none;
+}
+
+/* Фіксоване вікно по центру. showModal() піднімає його у верхній шар. */
+dialog {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  width: min(720px, calc(100% - 32px));
+  height: min(740px, calc(100% - 32px));
+  max-width: none;
+  max-height: none;
+  margin: auto;
+  padding: 15px clamp(16px, 4vw, 44px);
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.close-dialog {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  padding: 0 8px;
+  background-color: transparent;
+  color: #222;
+  font-size: 22px;
+}
+
+label {
+  display: block;
+  margin: 0 24px 8px;
+  text-align: center;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+input[type="email"] {
+  flex: 1 1 180px;
+  min-width: 0;
+  padding: 6px;
+  border: 1px solid #555;
+  font: inherit;
+}
+
+#form-error {
+  margin-top: 8px;
+  color: #a52822;
+}
+
+@media (max-width: 1050px) {
+  .columns {
+    column-count: 3;
+  }
+}
+
+@media (max-width: 650px) {
+  .columns {
+    column-count: 1;
+  }
+}
