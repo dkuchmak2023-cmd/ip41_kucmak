@@ -1,0 +1,203 @@
+$primary-color: #003366;
+$secondary-color: #f39c12;
+$text-color: #1f2937;
+$text-muted: #6b7280;
+$bg-body: #f4f6f9;
+$bg-card: #ffffff;
+$border-color: #e5e7eb;
+
+$font-size-xs: 12px;
+$font-size-sm: 15px;
+$font-size-base: 16px;
+$font-size-md: 18px;
+$font-size-lg: 26px;
+
+$breakpoints: (
+  mobile: 576px,
+  tablet: 768px,
+  desktop: 1024px
+);
+
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: $font-size-base;
+  background-color: $bg-body;
+  color: $text-color;
+  line-height: 1.5;
+}
+
+header#hero_container {
+  background-color: $primary-color;
+  color: $bg-card;
+  padding: 16px 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+
+  .header-wrapper {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    @include respond-to(tablet) {
+      flex-direction: row;
+    }
+  }
+
+  .logo {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: $bg-card;
+    text-align: center;
+    transition: opacity 0.3s ease;
+
+    @include respond-to(tablet) {
+      text-align: left;
+    }
+
+    &:hover {
+      opacity: 0.85;
+    }
+
+    .logo-title {
+      font-size: $font-size-xs;
+      letter-spacing: 1px;
+      color: $secondary-color;
+      font-weight: 700;
+    }
+
+    .logo-subtitle {
+      font-size: $font-size-md;
+      font-weight: 700;
+    }
+  }
+
+  .main-nav {
+    ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+
+      @include respond-to(desktop) {
+        gap: 24px;
+      }
+
+      li {
+        a {
+          color: $bg-card;
+          text-decoration: none;
+          font-size: $font-size-sm;
+          font-weight: 500;
+          padding: 6px 10px;
+          border-radius: 4px;
+          transition: background-color 0.3s ease, color 0.3s ease;
+
+          &:hover {
+            background-color: rgba(255, 255, 255, 0.12);
+            color: $secondary-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.main-container {
+  max-width: 1280px;
+  margin: 30px auto;
+  padding: 0 20px;
+
+  .section-title {
+    font-size: $font-size-lg;
+    color: $primary-color;
+    margin-bottom: 24px;
+    padding-left: 14px;
+    border-left: 5px solid $secondary-color;
+  }
+
+  .news-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+
+    @include respond-to(tablet) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-to(desktop) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .news-card {
+    background-color: $bg-card;
+    border: 1px solid $border-color;
+    border-top: 4px solid $primary-color;
+    border-radius: 6px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    animation: fadeInUp 0.5s ease forwards;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-top-color 0.25s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 51, 102, 0.12);
+      border-top-color: $secondary-color;
+    }
+
+    .news-date {
+      font-size: $font-size-xs;
+      font-weight: 700;
+      color: $text-muted;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .news-title {
+      font-size: $font-size-base;
+      font-weight: 600;
+
+      a {
+        color: $text-color;
+        text-decoration: none;
+        transition: color 0.25s ease;
+
+        &:hover {
+          color: $primary-color;
+        }
+      }
+    }
+  }
+}
